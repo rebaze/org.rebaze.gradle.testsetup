@@ -1,0 +1,42 @@
+plugins {
+    id "idea"
+    id "java-gradle-plugin"
+}
+
+/**
+This makes IntelliJ load Gradle API Sources properly.
+**/
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+group = 'org.rebaze.gradle.testsetup'
+version = '1-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+}
+
+/**
+  gradleTestKit() makes this plugin project use the gradle version used to built this project.
+**/
+
+dependencies {
+    testCompile gradleTestKit()
+    testCompile 'junit:junit:4.12'
+}
+
+gradlePlugin {
+    plugins {
+        testsetup {
+            id = "org.rebaze.gradle.testsetup"
+            implementationClass = "org.rebaze.gradle.testkit.SimplePlugin"
+        }
+    }
+}

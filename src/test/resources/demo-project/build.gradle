@@ -1,0 +1,24 @@
+plugins {
+    id 'org.rebaze.gradle.testsetup'
+  }
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+
+//apply plugin: 'org.rebaze.gradle.testsetup'
+dependencies {
+    //kit group: 'org.apache.karaf', name: 'apache-karaf', version: '4.0.7', ext: 'tar.gz'
+}
+
+/**
+kit {
+	name = 'foo'
+    launcherName = 'bar'
+}
+**/
